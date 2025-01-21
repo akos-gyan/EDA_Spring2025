@@ -22,11 +22,11 @@ Enter answers to the questions just below the >Answer: prompt.
 
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
-> Answer: 
+> Answer: I have no previous experience with R. However, I heard of Git once, when i enrolled in a a python online course. 
 
 2. Are there any components of the course about which you feel confident?
 
-> Answer: 
+> Answer: Not yet, as I have no prior experience in R. However, I am confident that with guidance from my professors and TAs, I will develop the necessary skills and understanding to succeed in the course.
 
 3. Are there any components of the course about which you feel apprehensive?
 
