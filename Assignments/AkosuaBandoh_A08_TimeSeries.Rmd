@@ -126,7 +126,8 @@ Study question: Have ozone concentrations changed over the 2010s at this station
 ```{r}
 #8
 GaringerOzone_Fill <- GaringerOzone %>% 
-  mutate(Daily.Max.8.hour.Ozone.Concentration = zoo::na.approx(Daily.Max.8.hour.Ozone.Concentration))
+  mutate(Daily.Max.8.hour.Ozone.Concentration = 
+           zoo::na.approx(Daily.Max.8.hour.Ozone.Concentration))
 
 #checking for NAs
 summary(GaringerOzone$Daily.Max.8.hour.Ozone.Concentration)
@@ -205,8 +206,6 @@ GaringerOzone.monthly_trend1
 
 ```{r}
 # 13
-GaringerOzone.monthly$Date <- as.Date(GaringerOzone.monthly$Date)
-
 ggplot(GaringerOzone.monthly, aes(x = Date, y = MonthlyMeanOzone)) +
   geom_point() +  
   geom_line(color = 'red') + 
@@ -214,8 +213,9 @@ ggplot(GaringerOzone.monthly, aes(x = Date, y = MonthlyMeanOzone)) +
   labs(
     title = "Ozone Concentrations",
     x = "Date",
-    y = "Monthly Concentration (ppm)"  # Fixed missing quote at end of 'y' label
-  )
+    y = "Monthly Concentration (ppm)"  
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
 
@@ -232,7 +232,8 @@ ggplot(GaringerOzone.monthly, aes(x = Date, y = MonthlyMeanOzone)) +
 ```{r}
 #15
 
-GaringerOzone.monthly.seasonal <- GaringerOzone.monthly.ts - Decomposed_GaringerOzone_monthly_Fill$time.series[, "seasonal"]
+GaringerOzone.monthly.seasonal <- GaringerOzone.monthly.ts - 
+  Decomposed_GaringerOzone_monthly_Fill$time.series[, "seasonal"]
 
 GaringerOzone.monthly.seasonal.ts <- ts(GaringerOzone.monthly.seasonal,
                                         start = start(GaringerOzone.monthly.ts),
